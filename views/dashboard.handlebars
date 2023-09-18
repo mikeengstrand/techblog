@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - Tech Blog</title>
+</head>
+<body>
+  <h1>Dashboard</h1>
+
+  {{#if loggedIn}}
+    <p>Hello, {{username}}! (User ID: {{userId}})</p>
+  {{else}}
+    <p>Welcome to the Tech Blog Dashboard. Please log in.</p>
+  {{/if}}
+
+  <h2>Your Posts</h2>
+  <ul>
+    {{#each posts}}
+      <li>
+        <h3><a href="/dashboard/post/{{this.id}}">{{this.title}}</a></h3>
+        <p>{{this.content}}</p>
+        <p>Posted on {{this.createdAt}}</p>
+      </li>
+    {{/each}}
+  </ul>
+
+  {{#if loggedIn}}
+    <p><a href="/dashboard/logout">Logout</a></p>
+  {{else}}
+    <p><a href="/login">Login</a></p>
+  {{/if}}
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tech Blog</title>
+</head>
+<body>
+  <h1>Welcome to the Tech Blog</h1>
+
+  {{#if loggedIn}}
+    <p>Hello, {{username}}! (User ID: {{userId}})</p>
+  {{/if}}
+
+  <ul>
+    {{#each posts}}
+      <li>
+        <h2>{{title}}</h2>
+        <p>{{content}}</p>
+        <p>Posted by {{User.username}} on {{created_at}}</p>
+
+        <h3>Comments:</h3>
+        <ul>
+          {{#each Comments}}
+            <li>
+              <p>{{comment}}</p>
+              <p>Comment by {{User.username}} on {{created_at}}</p>
+            </li>
+          {{/each}}
+        </ul>
+      </li>
+    {{/each}}
+  </ul>
+</body>
+</html>
